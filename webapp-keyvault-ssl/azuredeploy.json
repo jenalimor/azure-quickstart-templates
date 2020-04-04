@@ -83,23 +83,12 @@
       }
     },
     {
-      "type": "Microsoft.Web/certificates",
-      "name": "[parameters('certificateName')]",
-      "apiVersion": "2016-03-01",
-      "location": "[parameters('location')]",
-      "properties": {
-        "keyVaultId": "[parameters('existingKeyVaultId')]",
-        "keyVaultSecretName": "[parameters('existingKeyVaultSecretName')]"
-      }
-    },
-    {
       "type": "Microsoft.Web/sites",
       "name": "[parameters('webAppName')]",
       "apiVersion": "2016-08-01",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]",
-        "[resourceId('Microsoft.Web/certificates', parameters('certificateName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('servicePlanName'))]"
       ],
       "resources": [
         {
